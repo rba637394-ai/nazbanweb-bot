@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  nazbanweb-bot:
+    build: .
+    container_name: nazbanweb_bot
+    restart: always
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - ADMIN_ID=${ADMIN_ID}
+      - DB_PATH=/app/data/nazbanweb.db
+    volumes:
+      - bot_data:/app/data
+
+volumes:
+  bot_data:
